@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So Long - Juego Incremental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>So Long</h1>
+            <p class="subtitle">Un viaje contemplativo incremental</p>
+        </header>
+
+        <main>
+            <div class="game-area">
+                <div class="stats-panel">
+                    <div class="stat">
+                        <span class="stat-label">Pasos dados:</span>
+                        <span id="steps" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Distancia recorrida:</span>
+                        <span id="distance" class="stat-value">0</span>m
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Energía:</span>
+                        <span id="energy" class="stat-value">100</span>/100
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Velocidad:</span>
+                        <span id="walkSpeed" class="stat-value">1</span> pasos/seg
+                    </div>
+                </div>
+
+                <div class="journey-display">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress-fill"></div>
+                    </div>
+                    <div class="traveler">🚶‍♂️</div>
+                    <div class="landscape">
+                        <div class="scenery">🌱 🌿 🌳 🌲 🏔️</div>
+                    </div>
+                    <div class="journey-text">
+                        <p id="journeyDescription">Comenzando el viaje...</p>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="walkBtn" class="action-btn primary">Caminar</button>
+                    <button id="restBtn" class="action-btn secondary">Descansar</button>
+                    <button id="meditateBtn" class="action-btn tertiary" disabled>Meditar (10 pasos)</button>
+                </div>
+
+                <div class="upgrades-panel">
+                    <h3>Mejoras</h3>
+                    <div class="upgrades-grid">
+                        <div class="upgrade">
+                            <h4>Resistencia</h4>
+                            <p>Reduce el costo de energía</p>
+                            <button id="upgradeStamina" class="upgrade-btn" data-cost="5">
+                                Mejorar (5 pasos)
+                            </button>
+                        </div>
+                        <div class="upgrade">
+                            <h4>Velocidad</h4>
+                            <p>Camina más rápido</p>
+                            <button id="upgradeSpeed" class="upgrade-btn" data-cost="15">
+                                Mejorar (15 pasos)
+                            </button>
+                        </div>
+                        <div class="upgrade">
+                            <h4>Autodisciplina</h4>
+                            <p>Camina automáticamente</p>
+                            <button id="upgradeAuto" class="upgrade-btn" data-cost="50">
+                                Desbloquear (50 pasos)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="milestones">
+                    <h3>Hitos del viaje</h3>
+                    <div id="milestonesList" class="milestones-list">
+                        <!-- Milestones will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Un juego sobre el viaje, no el destino</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
