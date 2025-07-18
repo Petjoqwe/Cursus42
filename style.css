@@ -297,6 +297,114 @@ footer {
     margin-top: 30px;
 }
 
+/* Additional styles for images and animations */
+@keyframes particleFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--end-x), var(--end-y)) scale(0);
+        opacity: 0;
+    }
+}
+
+.scenery-item {
+    display: inline-block;
+    margin: 0 15px;
+    animation: sceneryFloat 3s ease-in-out infinite;
+    vertical-align: bottom;
+}
+
+.scenery-item.tree {
+    animation-delay: 0s;
+}
+
+.scenery-item.bush {
+    animation-delay: 0.5s;
+}
+
+.scenery-item.flower {
+    animation-delay: 1s;
+}
+
+.scenery-item.mountain {
+    animation-delay: 1.5s;
+}
+
+@keyframes sceneryFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.icon-with-image {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Walker animation styles */
+@keyframes walkCycle {
+    0% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(1deg); }
+    50% { transform: translateY(0px) rotate(0deg); }
+    75% { transform: translateY(-3px) rotate(-1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes armSwing {
+    0% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+}
+
+@keyframes legStep {
+    0% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(5deg); }
+    50% { transform: translateY(0px) rotate(0deg); }
+    75% { transform: translateY(-1px) rotate(-3deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.walker-animated {
+    animation: walkCycle 1.5s ease-in-out infinite;
+}
+
+.walker-animated .arm-left {
+    transform-origin: 25px 31px;
+    animation: armSwing 1.5s ease-in-out infinite;
+}
+
+.walker-animated .arm-right {
+    transform-origin: 55px 31px;
+    animation: armSwing 1.5s ease-in-out infinite reverse;
+}
+
+.walker-animated .leg-left {
+    transform-origin: 34px 53px;
+    animation: legStep 1.5s ease-in-out infinite;
+}
+
+.walker-animated .leg-right {
+    transform-origin: 46px 53px;
+    animation: legStep 1.5s ease-in-out infinite reverse;
+}
+
+.particle-container {
+    z-index: 1000;
+}
+
+.particle {
+    width: 16px;
+    height: 16px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .game-area {
@@ -315,5 +423,14 @@ footer {
     
     .action-btn {
         width: 200px;
+    }
+    
+    .scenery-item {
+        margin: 0 8px;
+    }
+    
+    .scenery-item svg {
+        max-width: 30px;
+        height: auto;
     }
 }

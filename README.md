@@ -40,6 +40,9 @@ Un juego incremental relajante que se enfoca en el viaje más que en el destino.
 - **Auto-guardado**: Tu progreso se guarda automáticamente cada 10 segundos
 - **Diseño responsivo**: Funciona en dispositivos móviles y escritorio
 - **Interfaz relajante**: Colores suaves y animaciones fluidas
+- **Gráficos SVG**: Personaje animado, paisajes dinámicos e iconos vectoriales
+- **Efectos de partículas**: Efectos visuales al caminar y meditar
+- **Paisajes dinámicos**: El escenario cambia conforme avanzas en tu viaje
 - **Sin presión**: No hay límites de tiempo ni competencia
 
 ## Para empezar

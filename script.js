@@ -30,7 +30,13 @@ const elements = {
     upgradeStamina: document.getElementById('upgradeStamina'),
     upgradeSpeed: document.getElementById('upgradeSpeed'),
     upgradeAuto: document.getElementById('upgradeAuto'),
-    milestonesList: document.getElementById('milestonesList')
+    milestonesList: document.getElementById('milestonesList'),
+    traveler: document.getElementById('traveler'),
+    scenery: document.getElementById('scenery'),
+    stepsIcon: document.getElementById('stepsIcon'),
+    distanceIcon: document.getElementById('distanceIcon'),
+    energyIcon: document.getElementById('energyIcon'),
+    speedIcon: document.getElementById('speedIcon')
 };
 
 // Journey descriptions based on distance
@@ -60,6 +66,7 @@ const milestones = [
 
 // Initialize game
 function initGame() {
+    initializeImages();
     updateDisplay();
     createMilestones();
     
@@ -79,6 +86,26 @@ function initGame() {
     }, 1000);
 }
 
+// Initialize images and icons
+function initializeImages() {
+    // Set up icons
+    if (elements.stepsIcon) elements.stepsIcon.innerHTML = gameImages.stepsIcon;
+    if (elements.distanceIcon) elements.distanceIcon.innerHTML = gameImages.distanceIcon;
+    if (elements.energyIcon) elements.energyIcon.innerHTML = gameImages.energyIcon;
+    if (elements.speedIcon) elements.speedIcon.innerHTML = gameImages.stepsIcon; // Using steps icon for speed
+    
+    // Set up traveler
+    if (elements.traveler) {
+        elements.traveler.innerHTML = gameImages.walker;
+        elements.traveler.classList.add('walker-animated');
+    }
+    
+    // Set up scenery
+    if (elements.scenery) {
+        elements.scenery.innerHTML = createScenery();
+    }
+}
+
 // Walk function
 function walk() {
     if (gameState.energy >= gameState.energyCost) {
@@ -86,10 +113,23 @@ function walk() {
         gameState.distance += 0.5; // Each step is 0.5 meters
         gameState.energy -= gameState.energyCost;
         
+        // Add particle effect when walking
+        if (elements.traveler) {
+            const rect = elements.traveler.getBoundingClientRect();
+            createParticles(rect.left + rect.width/2, rect.top + rect.height/2, 3);
+        }
+        
         updateDisplay();
         updateJourneyDescription();
         checkMilestones();
         updateUpgradeButtons();
+        
+        // Update scenery occasionally for variety
+        if (gameState.steps % 20 === 0) {
+            if (elements.scenery) {
+                elements.scenery.innerHTML = createScenery();
+            }
+        }
     }
 }
 
@@ -105,6 +145,13 @@ function meditate() {
         gameState.steps -= 10;
         gameState.maxEnergy += 5;
         gameState.energy = gameState.maxEnergy;
+        
+        // Add special particle effect for meditation
+        if (elements.traveler) {
+            const rect = elements.traveler.getBoundingClientRect();
+            createParticles(rect.left + rect.width/2, rect.top + rect.height/2, 8);
+        }
+        
         updateDisplay();
     }
 }

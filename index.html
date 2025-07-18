@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>So Long - Juego Incremental</title>
     <link rel="stylesheet" href="style.css">
+    <script src="images.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,19 +18,31 @@
             <div class="game-area">
                 <div class="stats-panel">
                     <div class="stat">
-                        <span class="stat-label">Pasos dados:</span>
+                        <div class="icon-with-image">
+                            <div class="stat-icon" id="stepsIcon"></div>
+                            <span class="stat-label">Pasos dados:</span>
+                        </div>
                         <span id="steps" class="stat-value">0</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-label">Distancia recorrida:</span>
+                        <div class="icon-with-image">
+                            <div class="stat-icon" id="distanceIcon"></div>
+                            <span class="stat-label">Distancia recorrida:</span>
+                        </div>
                         <span id="distance" class="stat-value">0</span>m
                     </div>
                     <div class="stat">
-                        <span class="stat-label">Energía:</span>
+                        <div class="icon-with-image">
+                            <div class="stat-icon" id="energyIcon"></div>
+                            <span class="stat-label">Energía:</span>
+                        </div>
                         <span id="energy" class="stat-value">100</span>/100
                     </div>
                     <div class="stat">
-                        <span class="stat-label">Velocidad:</span>
+                        <div class="icon-with-image">
+                            <div class="stat-icon" id="speedIcon"></div>
+                            <span class="stat-label">Velocidad:</span>
+                        </div>
                         <span id="walkSpeed" class="stat-value">1</span> pasos/seg
                     </div>
                 </div>
@@ -38,9 +51,9 @@
                     <div class="progress-bar">
                         <div id="progress" class="progress-fill"></div>
                     </div>
-                    <div class="traveler">🚶‍♂️</div>
+                    <div class="traveler" id="traveler"></div>
                     <div class="landscape">
-                        <div class="scenery">🌱 🌿 🌳 🌲 🏔️</div>
+                        <div class="scenery" id="scenery"></div>
                     </div>
                     <div class="journey-text">
                         <p id="journeyDescription">Comenzando el viaje...</p>
