@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa de Imágenes - So Long</title>
+    <script src="images.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .image-section {
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .image-item {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .image-item h4 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .image-display {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .animated-walker {
+            animation: walkCycle 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes walkCycle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(1deg); }
+            50% { transform: translateY(0px) rotate(0deg); }
+            75% { transform: translateY(-3px) rotate(-1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .scenery-demo {
+            background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .scenery-item {
+            display: inline-block;
+            margin: 0 10px;
+            animation: sceneryFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes sceneryFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .back-link a:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Vista Previa de Imágenes - So Long</h1>
+        
+        <div class="image-section">
+            <h2>🚶‍♂️ Personaje Principal</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <h4>Caminante (Estático)</h4>
+                    <div class="image-display" id="walker-static"></div>
+                    <p>El personaje principal del juego</p>
+                </div>
+                <div class="image-item">
+                    <h4>Caminante (Animado)</h4>
+                    <div class="image-display" id="walker-animated"></div>
+                    <p>Con animación de caminata</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-section">
+            <h2>🌲 Elementos del Paisaje</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <h4>Árbol</h4>
+                    <div class="image-display" id="tree"></div>
+                    <p>Árboles del bosque</p>
+                </div>
+                <div class="image-item">
+                    <h4>Arbusto</h4>
+                    <div class="image-display" id="bush"></div>
+                    <p>Vegetación baja</p>
+                </div>
+                <div class="image-item">
+                    <h4>Flor</h4>
+                    <div class="image-display" id="flower"></div>
+                    <p>Flores del camino</p>
+                </div>
+                <div class="image-item">
+                    <h4>Montaña</h4>
+                    <div class="image-display" id="mountain"></div>
+                    <p>Montañas de fondo</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-section">
+            <h2>🎯 Iconos de Interface</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <h4>Pasos</h4>
+                    <div class="image-display" id="steps-icon"></div>
+                    <p>Contador de pasos</p>
+                </div>
+                <div class="image-item">
+                    <h4>Distancia</h4>
+                    <div class="image-display" id="distance-icon"></div>
+                    <p>Distancia recorrida</p>
+                </div>
+                <div class="image-item">
+                    <h4>Energía</h4>
+                    <div class="image-display" id="energy-icon"></div>
+                    <p>Nivel de energía</p>
+                </div>
+                <div class="image-item">
+                    <h4>Partícula</h4>
+                    <div class="image-display" id="sparkle"></div>
+                    <p>Efectos especiales</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-section">
+            <h2>🌄 Paisaje Completo (Demo)</h2>
+            <div class="scenery-demo" id="scenery-demo">
+                <!-- El paisaje se generará aquí -->
+            </div>
+            <p style="text-align: center; margin-top: 15px;">
+                Así se ve el paisaje en movimiento durante el juego
+            </p>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">🎮 Ir al Juego Principal</a>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the page to load, then populate the images
+        window.addEventListener('load', function() {
+            // Character images
+            document.getElementById('walker-static').innerHTML = gameImages.walker;
+            document.getElementById('walker-animated').innerHTML = gameImages.walker;
+            document.getElementById('walker-animated').querySelector('svg').classList.add('animated-walker');
+
+            // Landscape elements
+            document.getElementById('tree').innerHTML = gameImages.tree;
+            document.getElementById('bush').innerHTML = gameImages.bush;
+            document.getElementById('flower').innerHTML = gameImages.flower;
+            document.getElementById('mountain').innerHTML = gameImages.mountain;
+
+            // UI Icons
+            document.getElementById('steps-icon').innerHTML = gameImages.stepsIcon;
+            document.getElementById('distance-icon').innerHTML = gameImages.distanceIcon;
+            document.getElementById('energy-icon').innerHTML = gameImages.energyIcon;
+            document.getElementById('sparkle').innerHTML = gameImages.sparkle;
+
+            // Create scenery demo
+            document.getElementById('scenery-demo').innerHTML = createScenery();
+        });
+    </script>
+</body>
+</html>
